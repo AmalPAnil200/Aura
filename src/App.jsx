@@ -4,10 +4,12 @@ import Home from './pages/Home';
 import Collection from './pages/Collection';
 import OurStory from './pages/OurStory';
 import Contact from './pages/Contact';
+import ScrollToTop from '../src/components/ScrollToTop';
 
 export default function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/collections" element={<Collection />} />
