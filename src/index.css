@@ -1,0 +1,85 @@
+
+@import "tailwindcss";
+@layer base {
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Montserrat:wght@300;400;500&display=swap');
+
+  :root {
+    --gold:        #c9a84c;
+    --gold-light:  #e8c97e;
+    --gold-pale:   #f5e6c0;
+    --dark:        #0a0804;
+    --dark-mid:    #12100a;
+    --cream:       #faf6ee;
+    --text-muted:  rgba(250, 246, 238, 0.5);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--dark);
+  }
+
+  body {
+    background-color: var(--dark);
+    color: var(--cream);
+    overflow-x: hidden;
+    height: auto;
+  }
+}
+
+/* CSS Only Ring Animation */
+.css-ring-container {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 0;
+  perspective: 1000px;
+}
+
+.css-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  box-shadow: 0 0 20px rgba(201, 168, 76, 0.1), inset 0 0 15px rgba(201, 168, 76, 0.05);
+  transform-style: preserve-3d;
+}
+
+.css-ring-1 {
+  width: min(40vw, 400px);
+  height: min(40vw, 400px);
+  border-width: 2px;
+  border-color: rgba(201, 168, 76, 0.5);
+  animation: ringX 14s linear infinite;
+}
+
+.css-ring-2 {
+  width: min(55vw, 550px);
+  height: min(55vw, 550px);
+  border-color: rgba(232, 201, 126, 0.3);
+  animation: ringY 20s linear infinite;
+}
+
+.css-ring-3 {
+  width: min(70vw, 700px);
+  height: min(70vw, 700px);
+  border-color: rgba(245, 230, 192, 0.15);
+  animation: ringZ 28s linear infinite;
+  border-style: dashed;
+}
+
+@keyframes ringX {
+  0% { transform: rotateX(60deg) rotateY(0deg) rotateZ(0deg); }
+  100% { transform: rotateX(60deg) rotateY(360deg) rotateZ(360deg); }
+}
+
+@keyframes ringY {
+  0% { transform: rotateX(45deg) rotateY(0deg) rotateZ(180deg); }
+  100% { transform: rotateX(45deg) rotateY(360deg) rotateZ(-180deg); }
+}
+
+@keyframes ringZ {
+  0% { transform: rotateX(75deg) rotateY(180deg) rotateZ(0deg); }
+  100% { transform: rotateX(75deg) rotateY(-180deg) rotateZ(360deg); }
+}
